@@ -1,0 +1,13 @@
+### GET request to example server
+GET https://examples.http-client.intellij.net/get
+    ?generated-in=IntelliJ IDEA
+POST http://localhost:8080/api/replies
+Content-Type: application/json
+
+{
+  "parentId": 1,
+  "authorId": "Pushkar",
+  "replyText": "This is a test reply from IntelliJ!",
+  "createdAt": "2026-04-04T12:00:00"
+}
+###

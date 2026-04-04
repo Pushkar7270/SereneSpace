@@ -2,6 +2,8 @@ package com.example.demo.controller;
 
 import com.example.demo.dao.DoubtDao;
 import com.example.demo.model.Doubt;
+import com.example.demo.service.DoubtService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -10,13 +12,14 @@ import java.util.List;
 @RequestMapping("/api/doubts")
 
 public class DoubtController {
-    private DoubtDao doubtDao = new DoubtDao();
+    @Autowired
+    private DoubtService doubtService;
     @PostMapping
     public boolean getDoubt(@RequestBody Doubt newDoubt){
-        return doubtDao.saveDoubt(newDoubt);
+        return doubtService.addDoubt((newDoubt));
     }
     @GetMapping
     public List<Doubt> AllDoubts(){
-        return doubtDao.getAllDoubts();
+        return doubtService.getAllDoubts();
     }
 }

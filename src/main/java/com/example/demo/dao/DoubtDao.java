@@ -1,14 +1,14 @@
 package com.example.demo.dao;
 
 import com.example.demo.model.Doubt;
+import org.springframework.stereotype.Repository;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.sun.org.apache.xpath.internal.XPath.SELECT;
 import static org.springframework.http.HttpHeaders.FROM;
-
+@Repository
 public class DoubtDao {
     public boolean saveDoubt(Doubt doubt){
         String sql = "INSERT INTO doubts (doubt_id, author_id, created_at, question_text, image_url, is_resolved) VALUES (?, ?, ?, ?, ?, ?)";
