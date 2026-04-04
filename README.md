@@ -18,7 +18,7 @@ There is no main chat. Every interaction is an isolated, anonymous, deep-dive pr
 
 ## 🛠️ Technical Stack & Engineering Decisions
 
-* **Vanilla-First Frontend:** A framework-free UI that ensures zero build-tool friction, maximum responsiveness, and a clean, minimalist "Serene" aesthetic.
+* **Vanilla HTML/CSS Frontend:** A framework-free UI built with pure HTML, CSS, and native JavaScript `fetch()` calls. This ensures zero build-tool friction, lightning-fast rendering, and a clean, minimalist "Serene" aesthetic.
 * **RESTful Spring Boot Backend:** A scalable Java API that orchestrates the flow between the UI and the database.
 * **Dual-State Persistence (JDBC + MySQL):** Robust, transparent data management bypassing heavy ORMs to maintain total control over the query structure.
 * **Optimized Polling Synchronization:** Uses an optimized `setInterval` mechanism to fetch updates, bypassing the fragility of WebSockets to guarantee a stable, crash-free Hackathon MVP.
