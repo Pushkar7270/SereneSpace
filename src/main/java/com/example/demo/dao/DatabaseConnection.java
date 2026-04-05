@@ -1,24 +1,36 @@
 package com.example.demo.dao;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
 import java.sql.Connection;
-import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+@Component
 public class DatabaseConnection {
-    private static final String dbUrl = "jdbc:mysql://localhost:3306/chatovert";
-    private static final String username = "root";
-    private static final String password = "password";
-    private static Connection connection;
+    // Static variables to hold database connection details.
+    private static String dbUrl;
+    private static String username;
+    private static String password;
+    // inject data base url from application.properties.
+    @Value("${spring.datasource.url}")
+    public void setDbUrl(String url) { dbUrl = url; }
+    //inject username from application.properties.
+    @Value("${spring.datasource.username}")
+    public void setUsername(String user) { username = user; }
+    //inject password from application.properties.
+    @Value("${spring.datasource.password}")
+    public void setPassword(String pass) { password = pass; }
 
-
-    private DatabaseConnection() {
-    }
+    private DatabaseConnection() {}
+    // establishes and returns a connection to the database using the provided credentials.
     public static Connection getConnection() {
         try {
-            connection = DriverManager.getConnection(dbUrl, username, password);
-        }catch (SQLException e){
+            return DriverManager.getConnection(dbUrl, username, password);
+        } catch (SQLException e) {
             e.printStackTrace();
+            return null;
         }
-        return connection;
     }
 }

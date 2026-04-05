@@ -6,8 +6,6 @@ import org.springframework.stereotype.Repository;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-
-import static org.springframework.http.HttpHeaders.FROM;
 @Repository
 public class DoubtDao {
     public boolean saveDoubt(Doubt doubt){

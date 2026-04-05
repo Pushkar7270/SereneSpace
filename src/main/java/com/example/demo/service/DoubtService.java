@@ -11,9 +11,11 @@ import java.util.List;
 public class DoubtService {
     @Autowired
     private DoubtDao doubtDao;
+    //adds a doubt.
     public boolean addDoubt(Doubt doubt){
         return doubtDao.saveDoubt(doubt);
     }
+    //fetches all doubts.
     public List<Doubt> getAllDoubts(){
         return doubtDao.getAllDoubts();
     }

@@ -8,10 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-import static org.springframework.boot.context.config.ConfigDataEnvironmentPostProcessor.ORDER;
-import static org.springframework.http.HttpHeaders.FROM;
-
-
 @Repository
 public class DoubtReplyDao {
     public boolean saveReply(DoubtReply reply) {
