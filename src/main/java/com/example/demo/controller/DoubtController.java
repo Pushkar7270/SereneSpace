@@ -1,6 +1,5 @@
 package com.example.demo.controller;
 
-import com.example.demo.dao.DoubtDao;
 import com.example.demo.model.Doubt;
 import com.example.demo.service.DoubtService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,5 +20,9 @@ public class DoubtController {
     @GetMapping
     public List<Doubt> AllDoubts(){
         return doubtService.getAllDoubts();
+    }
+    @PutMapping("/{doubtId}/resolve")
+    public boolean resolveDoubt(@PathVariable int doubtId){
+        return doubtService.resolveDoubt(doubtId);
     }
 }
