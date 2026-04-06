@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import java.time.LocalDateTime;
 
 public class DoubtReply {
-    private int replyID;
+    private Integer replyID;
     private int parentId;
     private String authorId;
     private String replyText;
@@ -13,7 +13,7 @@ public class DoubtReply {
     private LocalDateTime createdAt;
     private String imageUrl;
 
-    public DoubtReply(int replyID, int parentId, String authorId, String replyText, LocalDateTime createdAt, String imageUrl) {
+    public DoubtReply(Integer replyID, int parentId, String authorId, String replyText, LocalDateTime createdAt, String imageUrl) {
         this.replyID = replyID;
         this.parentId = parentId;
         this.authorId = authorId;
@@ -25,7 +25,7 @@ public class DoubtReply {
 
     }
 
-    public int getReplyID() {
+    public Integer getReplyID() {
         return replyID;
     }
 
@@ -45,7 +45,7 @@ public class DoubtReply {
         return createdAt;
     }
 
-    public void setReplyID(int replyID) {
+    public void setReplyID(Integer replyID) {
         this.replyID = replyID;
     }
 

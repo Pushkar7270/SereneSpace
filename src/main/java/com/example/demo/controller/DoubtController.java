@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;// import list of doubts
 
-@RestController// returns the jason data directly to the client
+@RestController      // returns the jason data directly to the client
 @RequestMapping("/api/doubts")//base url for all the endpoints in this controller
 
 public class DoubtController {

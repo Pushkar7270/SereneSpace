@@ -2,14 +2,14 @@ package com.example.demo.model;
 import java.time.LocalDateTime;
 
 public class Doubt {
-private int doubtId;
+private Integer doubtId;
 private String authorId;
 private String questionText;
 private String imageUrl;
 private LocalDateTime createdAt;
 private boolean isResolved;
 
-    public Doubt(int doubtId, String authorId, String questionText, String imageUrl, LocalDateTime createdAt, boolean isResolved) {
+    public Doubt(Integer doubtId, String authorId, String questionText, String imageUrl, LocalDateTime createdAt, boolean isResolved) {
         this.doubtId = doubtId;
         this.authorId = authorId;
         this.questionText = questionText;
@@ -21,7 +21,7 @@ private boolean isResolved;
     public Doubt() {
     }
 
-    public int getDoubtId() {
+    public Integer getDoubtId() {
         return doubtId;
     }
 
@@ -45,7 +45,7 @@ private boolean isResolved;
         return isResolved;
     }
 
-    public void setDoubtId(int doubtId) {
+    public void setDoubtId(Integer doubtId) {
         this.doubtId = doubtId;
     }
 
