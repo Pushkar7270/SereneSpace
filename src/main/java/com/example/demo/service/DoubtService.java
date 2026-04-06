@@ -19,4 +19,8 @@ public class DoubtService {
     public List<Doubt> getAllDoubts(){
         return doubtDao.getAllDoubts();
     }
+    public boolean resolveDoubt(int doubtId){
+        return doubtDao.markDoubtAsResolved(doubtId);
+    }
 }
+

@@ -11,13 +11,15 @@ public class DoubtReply {
     private String replyText;
     @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
     private LocalDateTime createdAt;
+    private String imageUrl;
 
-    public DoubtReply(int replyID, int parentId, String authorId, String replyText, LocalDateTime createdAt) {
+    public DoubtReply(int replyID, int parentId, String authorId, String replyText, LocalDateTime createdAt, String imageUrl) {
         this.replyID = replyID;
         this.parentId = parentId;
         this.authorId = authorId;
         this.replyText = replyText;
         this.createdAt = createdAt;
+        this.imageUrl = imageUrl;
     }
     public DoubtReply(){
 
@@ -61,5 +63,13 @@ public class DoubtReply {
 
     public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 }

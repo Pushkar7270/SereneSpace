@@ -9,16 +9,14 @@ import java.util.List;
 @Repository
 public class DoubtDao {
     public boolean saveDoubt(Doubt doubt){
-        String sql = "INSERT INTO doubts (doubt_id, author_id, created_at, question_text, image_url, is_resolved) VALUES (?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO doubts (author_id, created_at, question_text, image_url, is_resolved) VALUES (?, ?, ?, ?, ?)";
         try (Connection connection = DatabaseConnection.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
-
-            preparedStatement.setInt(1, doubt.getDoubtId());
-            preparedStatement.setString(2, doubt.getAuthorId());
-            preparedStatement.setTimestamp(3, Timestamp.valueOf(doubt.getCreatedAt()));
-            preparedStatement.setString(4, doubt.getQuestionText());
-            preparedStatement.setString(5, doubt.getImageUrl());
-            preparedStatement.setBoolean(6, doubt.isResolved());
+            preparedStatement.setString(1, doubt.getAuthorId());
+            preparedStatement.setTimestamp(2, Timestamp.valueOf(doubt.getCreatedAt()));
+            preparedStatement.setString(3, doubt.getQuestionText());
+            preparedStatement.setString(4, doubt.getImageUrl());
+            preparedStatement.setBoolean(5, doubt.isResolved());
 
             int rowsAffected = preparedStatement.executeUpdate();
             return rowsAffected > 0;
@@ -55,5 +53,21 @@ public class DoubtDao {
             e.printStackTrace();
         }
         return doubtList;
+    }
+    public boolean markDoubtAsResolved(int doubtId) {
+        String sql = "UPDATE doubts SET is_resolved = true WHERE doubt_id = ?";
+
+        try (Connection connection = DatabaseConnection.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+
+            preparedStatement.setInt(1, doubtId);
+
+            int rowsAffected = preparedStatement.executeUpdate();
+            return rowsAffected > 0;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 }
