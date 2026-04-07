@@ -15,6 +15,7 @@ public class DoubtController {
     private DoubtService doubtService;// injects the DoubtService to handle doubts.
     @PostMapping
     public boolean getDoubt(@RequestBody Doubt newDoubt){//handles request for new doubt
+        newDoubt.setCreatedAt(java.time.LocalDateTime.now());
         return doubtService.addDoubt((newDoubt));
     }
     @GetMapping
